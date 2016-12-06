@@ -40,3 +40,7 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore database.yml file.
+/config/database.yml
+/config/database.yml.example/*
