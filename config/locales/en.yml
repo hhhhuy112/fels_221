@@ -21,3 +21,17 @@
 
 en:
   hello: "Hello world"
+  home: "Home"
+  users: "Users"
+  categories: "Categories"
+  login: "Login"
+  app_name: "E-LEARNING"
+  signup: "Sign up now!"
+  welcome: "Welcome to the E-learning App"
+  center: "This is the home page for the"
+  app: "App"
+  confirm: "Confirmation"
+  create_account: "Create my account"
+  error_messages: "shared/error_messages"
+  error: "error"
+  form_error: "The form contains"
