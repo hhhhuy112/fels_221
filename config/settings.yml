@@ -1,0 +1,6 @@
+model_user:
+  password_minimum: 6
+  name_maximum: 50
+  email_maximum: 255
+user_helper:
+  size: 80
