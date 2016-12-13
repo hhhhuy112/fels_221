@@ -4,3 +4,14 @@ model_user:
   email_maximum: 255
 user_helper:
   size: 80
+seed:
+  correct_answer: "-C"
+middleware:
+  path_info: "PATH_INFO"
+  path: "/searches"
+  respone_code: 200
+  content_type: "Content-Type"
+  type: "application/json"
+  params: "term"
+task:
+  searches_desc: "Generate search suggesstions from Questions"
