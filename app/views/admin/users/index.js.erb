@@ -1,0 +1,3 @@
+$('tbody').html('<%= j render @users %>');
+$('#pag').html('<%= j will_paginate @users, class: "col-md-8 col-md-offset-2" %>');
+$('.number-users').html('( <%= j pluralize @quantity_users, "user" %> )');

@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: {minimum: Settings.model_user.password_minimum}
 
+  enum role: [:user, :admin]
+
+  scope :search_by, -> name {where "users.name LIKE ?", "%#{name}%"}
+
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)

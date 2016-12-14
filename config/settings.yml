@@ -15,3 +15,5 @@ middleware:
   params: "term"
 task:
   searches_desc: "Generate search suggesstions from Questions"
+admin_users_controller:
+  per_page: 5

@@ -1,0 +1,12 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= link_to user.name, user %></td>
+  <td><%= link_to user.email, user %></td>
+  <td>
+    <% if !current_user? user %>
+      <%= link_to t("delete"), [:admin, user], method: :delete,
+        data: {confirm: t("are_you_sure"), remote: true},
+        class: "btn btn-danger" %>
+    <% end %>
+  </td>
+</tr>
