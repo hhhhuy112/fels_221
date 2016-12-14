@@ -4,3 +4,5 @@ model_user:
   email_maximum: 255
 user_helper:
   size: 80
+categories_controller:
+  per_page: 9
