@@ -1,0 +1,18 @@
+<div class="col-md-4">
+  <div class="product-item">
+    <div class="pi-img-wrapper">
+      <%= image_tag category.picture, class: "img-responsive" %>
+      <div><%= link_to t("history"), "#", class: "btn" %></div>
+    </div>
+    <h3><%= category.name %></h3>
+    <div class="pi-price">
+      <%= your_result(category) %>/<%= quantity_of_question(category) %>
+    </div>
+    <% if is_finished?(category) %>
+      <%= link_to t("finish"), "#", class: "btn add2cart disabled" %>
+    <% else %>
+      <%= link_to t("new_lesson"), "#", class: "btn add2cart" %>
+    <% end %>
+    <div class="sticker sticker-new"></div>
+  </div>
+</div>
