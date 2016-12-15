@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="box box-primary">
+      <h1><%= t "result" %> <%= @lesson.score %>/<%= @results.length %></h1>
+      <div class="box-body">
+        <table class="table table-hover">
+          <tr>
+            <th><%= t "sharp" %></th>
+            <th><%= t "question" %></th>
+            <th><%= t "your_answer" %></th>
+            <th><%= t "correct_answer" %></th>
+            <th><%= t "correct" %></th>
+          </tr>
+          <% @results.each_with_index do |learn, index| %>
+            <tr>
+              <% if params[:page] %>
+                <td><%= get_index index, params[:page] %></td>
+              <% else %>
+                <td><%= index + 1 %></td>
+              <% end %>
+              <td><%= get_question learn.question_id %></td>
+              <td><%= your_answer learn.answer_id %></td>
+              <td><%= correct_answer learn.question_id %></td>
+              <td><span class="success glyphicon glyphicon-ok"></span></td>
+            </tr>
+          <% end %>
+        </table>
+        <div class="text-center">
+          <%= link_to t("categories"), categories_path, class: "btn btn-primary" %>
+          <%= link_to t("new_lesson"), new_category_lesson_path(@lesson.category_id),
+            class: "btn btn-warning" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
