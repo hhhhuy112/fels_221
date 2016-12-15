@@ -5,6 +5,7 @@ module CategoriesHelper
     unless quantity
       quantity = 0
     end
+    quantity
   end
 
   def your_result category
@@ -15,7 +16,7 @@ module CategoriesHelper
         result = result + lesson.learns.is_correct?.count
       end
     end
-    return result
+    result
   end
 
   def is_finished? category_id

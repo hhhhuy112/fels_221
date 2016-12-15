@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-2">
+    <div class="processBox">
+      <h1 class="timer-container" id="#run-the-timer">
+        <span class="minute">00</span>:<span class="second">10</span>
+      </h1>
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+    <% i = 0 %>
+    <%= form_for @lesson, url: {action: "create"} do |l| %>
+      <%= l.fields_for :learns do |f| %>
+        <div class="panel panel-primary" id="basepanel1">
+          <div class="panel-heading"><%= t "question" %> <%= i=i+1 %></div>
+          <div class="panel-body">
+            <p><strong><%= get_question(f.object.question_id)%></strong></p>
+            <%= f.collection_radio_buttons(:answer_id, get_answers(f.object.question_id), :id, :content, include_hidden: false) do |b|%>
+              <div class="radio">
+                <%= b.label {b.radio_button + b.text} %>
+              </div>
+            <% end %>
+            <%= f.hidden_field :question_id %>
+          </div>
+        </div>
+      <% end %>
+      <%= l.submit %>
+    <% end %>
+  </div>
+  <div class="col-md-2">
+    <div class="processBox">
+      <h3> <%= t "progress" %> </h3>
+      <h3>
+        <span id="answer_count">0</span>/<%= i%>
+      </h3>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    var fragmentTime;
+    $('.timeout_message_show').hide();
+    var minutes = jQuery('span.minute').text();
+    var seconds = jQuery('span.second').text();
+    minutes = parseInt(minutes);
+    seconds = parseInt(seconds);
+    if (isNaN(minutes)) {
+      minutes = 00;
+    }
+    if (isNaN(seconds)) {
+      seconds = 00;
+    }
+    if (minutes == 60) {
+      minutes = 59;
+    }
+    if (seconds == 60) {
+      seconds = 59;
+    }
+    fragmentTime = (60 * minutes) + (seconds);
+    displayMinute = document.querySelector('span.minute');
+    displaySecond = document.querySelector('span.second');
+    startTimer(fragmentTime, displayMinute, displaySecond);
+  });
+</script>

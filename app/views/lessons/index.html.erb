@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="box box-primary">
+      <h1><%= t "your_lesson" %></h1>
+      <div class="box-body">
+        <table class="table table-hover">
+          <tr>
+            <th><%= t "sharp" %></th>
+            <th><%= t "lesson" %></th>
+            <th><%= t "score" %></th>
+            <th></th>
+          </tr>
+          <% i=0 %>
+          <% @lessons.each do |lesson| %>
+            <tr>
+              <td><%= i=i+1 %></td>
+              <td><%= t "lesson" %> <%= i %></td>
+              <td><%= lesson.score %> / <%= lesson.learns.count %></td>
+              <td><%= link_to 'Show', category_lesson_path(lesson.category_id, lesson), class: "btn btn-primary" %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
