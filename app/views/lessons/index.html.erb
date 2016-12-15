@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="box box-primary">
+      <h1><%= t "your_lesson" %></h1>
+      <div class="box-body">
+        <table class="table table-hover">
+          <tr>
+            <th><%= t "sharp" %></th>
+            <th><%= t "lesson" %></th>
+            <th><%= t "score" %></th>
+            <th></th>
+          </tr>
+          <% @lessons.each_with_index do |lesson, index| %>
+            <tr>
+              <td><%= get_index index %></td>
+              <td><%= t "lesson" %> <%= get_index index %></td>
+              <td><%= lesson.score %> / <%= lesson.learns.count %></td>
+              <td><%= link_to t("show_lesson"), category_lesson_path(lesson.category_id, lesson), 
+                class: "btn btn-primary" %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

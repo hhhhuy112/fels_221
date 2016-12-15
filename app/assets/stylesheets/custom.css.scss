@@ -296,3 +296,19 @@ span.picture {
   padding: 0px;
   overflow: hidden;
 }
+
+.radio input[type="radio"]{
+  width: inherit;
+}
+
+/* Lesson New */
+.processBox {
+  background-color: green;
+  position: fixed;
+  text-align: center;
+  float: right;
+  color: white;
+  h2 {
+    color: white;
+  }
+}
