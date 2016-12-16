@@ -1,0 +1,20 @@
+<%= form_tag searches_path, remote: true, method: :get, id: "index_questions_search" do %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= text_field_tag :keyword, params[:keyword], class: "form-control", 
+        placeholder: t("search"), id: "search_keywords" %>
+    </div>
+    <div class="col-md-4">
+      <%= select_tag :category, options_for_select @categories.collect{|u| [u.name, u.id]},
+        include_blank: t("all_categories"), class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <%= radio_button_tag :learn, true %>
+        <%= label_tag :learn, t("learn") %>
+        <%= radio_button_tag :learn, false %>
+        <%= label_tag :learn, t("not_learn") %>
+      </div>
+    </div>
+  </div>
+<% end %>

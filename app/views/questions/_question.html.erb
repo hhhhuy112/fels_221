@@ -1,0 +1,9 @@
+<tr>
+  <td><%= question.content %></td>
+  <td><%= correct_answer question.id %></td>
+  <% if is_learned? question.id %>
+    <th><%= t "_yes" %></th>
+  <% else %>
+    <th><%= t "_no" %></th>
+  <% end %>
+</tr>
