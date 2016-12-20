@@ -28,3 +28,5 @@ lesson_view:
   minute: "00"
   second: "20"
   answer_count: 0
+user_controller:
+  per_page: 5

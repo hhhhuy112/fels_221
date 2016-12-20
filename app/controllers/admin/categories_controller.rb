@@ -1,11 +1,8 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :load_category, except: [:index, :new, :create]
+  before_action :load_categories, only: [:index, :create]
 
   def index
-    @categories = Category.search_by_name(
-      params[:search]).order_by_date.paginate page: params[:page],
-      per_page: Settings.admin_categories_controller.per_page
-    @quantity = @categories.count
     @category = Category.new
     respond_to do |format|
       format.html
@@ -55,9 +52,7 @@ class Admin::CategoriesController < Admin::BaseController
     else
       flash[:danger] = t "delete_fail"
     end
-    respond_to do |format|
-      format.html {redirect_to admin_categories_url}
-    end
+    redirect_to admin_categories_url
   end
 
   private
@@ -67,6 +62,12 @@ class Admin::CategoriesController < Admin::BaseController
       flash[:danger] = t "do_not_find_item"
       redirect_to :back
     end
+  end
+  def load_categories
+    @categories = Category.search_by_name(
+      params[:search]).order_by_date.paginate page: params[:page],
+      per_page: Settings.admin_categories_controller.per_page
+    @quantity = @categories.count
   end
 
   def category_params
