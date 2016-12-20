@@ -1,0 +1,24 @@
+<div class="pdf_show">
+  <h3 class="title"><%= category.name.upcase %></h3>
+  <h4 class="time"><%= Time.new, format: :date_month_year_concise %></h4>
+  <table class = "table">
+    <thead>
+      <tr>
+        <th><%= t "table_th_id" %></th>
+        <th><%= t "table_th_content" %></th>
+        <th><%= t "table_th_mean" %></th>
+      </tr>
+    </thead>
+    <tbody id = "questions">
+      <% category.questions.each do |question| %>
+        <tr>
+          <td><%= question.id %></td>
+          <td><%= question.content %></td>
+          <% question.feed.each do |a| %>
+            <td><%= a.content %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
