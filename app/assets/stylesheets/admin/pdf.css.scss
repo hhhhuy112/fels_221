@@ -1,0 +1,29 @@
+.pdf_show {
+  width: 800px;
+  max-width: 800px;
+  border: 1px solid grey;
+  margin: 50px;
+  padding: 50px;
+  .title {
+    text-align: center;
+  }
+  .time {
+    text-align: center;
+  }
+  table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      border-collapse: collapse;
+      background-color: #4CAF50;
+      color: white;
+    }
+    td {
+      height: 50px;
+      vertical-align: middle;
+      border-collapse: collapse;
+    }
+    tr:nth-child(even) {background-color: #f2f2f2}
+  }
+}

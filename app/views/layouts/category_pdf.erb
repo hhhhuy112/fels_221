@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t "category" %></title>
+  <style>
+    <%= Rails.application.assets.find_asset("admin/pdf.css.scss").to_s %>
+  </style>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>
