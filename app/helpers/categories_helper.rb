@@ -9,7 +9,7 @@ module CategoriesHelper
   end
 
   def your_result category
-    lessons = category.lessons.get_lesson_of_user current_user.id
+    lessons = category.lessons.of_user current_user.id
     result = 0
     if lessons
       lessons.each do |lesson|

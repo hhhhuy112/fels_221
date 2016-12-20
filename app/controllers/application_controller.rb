@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-  rescue_from Exception::NoMethodError, with: :render_error
+  # rescue_from Exception::NoMethodError, with: :render_error
 
   private
   def logged_in_user

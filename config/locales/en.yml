@@ -58,6 +58,10 @@ en:
   do_not_find_user: "Don't find user"
   view_my_profile: "View my profile"
   all_users: "All users"
+  category: "Category"
+  submit: "Submit"
+  placeholder_category: "Enter name category"
+  alert_add_question: "Please add question to category"
   show_categories:
     history: "History"
     new_lesson: "New Lesson"

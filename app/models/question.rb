@@ -8,6 +8,7 @@ class Question < ApplicationRecord
   scope :search_content, -> keyword {where "LOWER(content) LIKE ?", "%#{keyword}%"} 
   scope :question_not_learn, -> learned_ids {where "id NOT IN (?)", learned_ids}
   scope :search_content, -> keyword {where "LOWER(content) LIKE ?", "%#{keyword}%"}
+  scope :order_by_date, -> {order created_at: :desc}
   scope :search_by_content, -> content do
     if content
       where "content LIKE ?", "%#{content}%"

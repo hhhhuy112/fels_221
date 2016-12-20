@@ -62,7 +62,7 @@
               <div class = "form-group">
                 <%= f.hidden_field :category_id, value: @category.id %>
                 <%= f.label :content %><br>
-                <%= f.text_field :content, required: true %>
+                <%= f.text_field :content, required: true , class: "form-control" %>
               </div>
               <h2 class = "number-answers"><%= t "number_answer" %></h2>
               <div id = "areaAnswer" class = "row"></div>
