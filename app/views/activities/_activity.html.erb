@@ -1,0 +1,27 @@
+<li>
+  <i class = "glyphicon glyphicon-user bg-blue"></i>
+  <div class = "timeline-item">
+    <span class = "time">
+      <i class = "fa fa-clock-o"></i>
+      <%= time_ago_in_words activity.created_at %>
+    </span>
+    <h3 class = "timeline-header no-border">
+      <% if activity.follow? %>
+        <%= link_to activity.user_name, user_path(activity.user_id) %>
+        <%= t "following" %>
+        <%= link_to search_user_by_id(activity.source).name,
+          user_path(activity.source) %>
+      <% elsif activity.unfollow? %>
+        <%= link_to activity.user_name, user_path(activity.user_id) %>
+        <%= t "unfollow" %>
+        <%= link_to search_user_by_id(activity.source).name,
+          user_path(activity.source) %>
+      <% elsif activity.had_learn? %>
+        <%= activity.user_name %>
+        <%= t "had learn" %>
+        <%= Lesson.find(activity.source).score %><%= t "word_in_categories" %>
+        <%= link_to Lesson.find(activity.source).category.name, category_path(activity.source) %>
+      <% end %>
+    </h3>
+  </div>
+</li>
