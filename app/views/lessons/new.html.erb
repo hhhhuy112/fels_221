@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-2">
+    <div class="processBox">
+      <h1 class="timer-container" id="#run-the-timer">
+        <span class="minute"><%= Settings.lesson_view.minute %></span>:
+        <span class="second"><%= Settings.lesson_view.second %></span>
+      </h1>
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+    <% i = 0 %>
+    <%= form_for [:category, @lesson] do |l| %>
+      <%= l.fields_for :learns do |f| %>
+        <div class="panel panel-primary" id="basepanel1">
+          <div class="panel-heading"><%= t "question" %> <%= i=i+1 %></div>
+          <div class="panel-body">
+            <p><strong><%= get_question f.object.question_id %></strong></p>
+            <%= f.collection_radio_buttons(:answer_id, get_answers(f.object.question_id), 
+              :id, :content, include_hidden: false) do |b|%>
+              <div class="radio">
+                <%= b.label {b.radio_button + b.text} %>
+              </div>
+            <% end %>
+            <%= f.hidden_field :question_id %>
+          </div>
+        </div>
+      <% end %>
+      <%= l.submit %>
+    <% end %>
+  </div>
+  <div class="col-md-2">
+    <div class="processBox">
+      <h3> <%= t "progress" %> </h3>
+      <h3>
+        <span id="answer_count"><%= Settings.lesson_view.answer_count %></span>/<%= i %>
+      </h3>
+    </div>
+  </div>
+</div>
