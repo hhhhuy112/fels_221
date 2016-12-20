@@ -1,7 +1,7 @@
 class Learn < ApplicationRecord
   belongs_to :question
   belongs_to :answer, optional: true
-  belongs_to :lesson
+  belongs_to :lesson, optional: true
 
   scope :learned_ids, -> user_id, category do
     lessons = category.lessons.of_user user_id

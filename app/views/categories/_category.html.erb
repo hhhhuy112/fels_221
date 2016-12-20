@@ -11,7 +11,7 @@
     <% if is_finished?(category) %>
       <%= link_to t("finish"), "#", class: "btn add2cart disabled" %>
     <% else %>
-      <%= link_to t("new_lesson"), "#", class: "btn add2cart" %>
+      <%= link_to t("new_lesson"), new_category_lesson_path(category), class: "btn add2cart" %>
     <% end %>
     <div class="sticker sticker-new"></div>
   </div>

@@ -12,8 +12,15 @@
           </tr>
           <% @lessons.each_with_index do |lesson, index| %>
             <tr>
-              <td><%= get_index index %></td>
-              <td><%= t "lesson" %> <%= get_index index %></td>
+              <% binding.pry %>
+              <% if params[:page] %>
+                <% binding.pry %>
+                <td><%= get_index index, params[:page] %></td>
+                <td><%= t "lesson" %> <%= get_index index, params[:page] %></td>
+              <% else %>
+                <td><%= index + 1 %></td>
+                <td><%= t "lesson" %> <%= index + 1 %></td>
+              <% end %>
               <td><%= lesson.score %> / <%= lesson.learns.count %></td>
               <td><%= link_to t("show_lesson"), category_lesson_path(lesson.category_id, lesson), 
                 class: "btn btn-primary" %></td>

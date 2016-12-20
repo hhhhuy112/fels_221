@@ -13,7 +13,7 @@ module CategoriesHelper
     result = 0
     if lessons
       lessons.each do |lesson|
-        result = result + lesson.learns.is_correct?.count
+        result = result + lesson.learns.is_correct.count
       end
     end
     result

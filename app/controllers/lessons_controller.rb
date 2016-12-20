@@ -8,17 +8,18 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @results = @lesson.learns
+    @results = @lesson.learns.paginate(page: params[:page])
+      .per_page Settings.lessons_controller.per_page
   end
 
   def new
     category = Category.find_by id: params[:category_id]
     learned_ids = Learn.learned_ids current_user.id, category
     if learned_ids.empty?
-      questions = category.questions.take Settings.lessons_controller.take
+      questions = category.questions.take Settings.lessons_controller.get
     else
       questions = category.questions.question_not_learn(learned_ids)
-        .take Settings.lessons_controller.take
+        .take Settings.lessons_controller.get
     end
     @lesson = category.lessons.build
     questions.each do |question|
@@ -27,10 +28,10 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new lesson_params
+    @lesson = current_user.lessons.build lesson_params
     @lesson.category_id = params[:category_id]
     @lesson.learns.each do |learn|
-      learn.update is_correct: Learn.check_correct_answer learn.answer_id
+      learn.update is_correct: Learn.check_correct_answer(learn.answer_id)
     end
     if @lesson.save
       score = @lesson.learns.is_correct.count
@@ -45,7 +46,7 @@ class LessonsController < ApplicationController
   private
   
   def lesson_params
-    params.require(:lesson).permit learns_attributes: [:question_id, :answer_id]
+    params.require(:lesson).permit(learns_attributes: [:question_id, :answer_id])
   end
 
   def correct_user

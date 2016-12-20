@@ -21,3 +21,10 @@ categories_controller:
   per_page: 9
 admin_categories_controller:
   per_page: 5
+lessons_controller:
+  get: 5
+  per_page: 5
+lesson_view:
+  minute: "00"
+  second: "20"
+  answer_count: 0

@@ -13,7 +13,11 @@
           </tr>
           <% @results.each_with_index do |learn, index| %>
             <tr>
-              <td><%= get_index index %></td>
+              <% if params[:page] %>
+                <td><%= get_index index, params[:page] %></td>
+              <% else %>
+                <td><%= index + 1 %></td>
+              <% end %>
               <td><%= get_question learn.question_id %></td>
               <td><%= your_answer learn.answer_id %></td>
               <td><%= correct_answer learn.question_id %></td>

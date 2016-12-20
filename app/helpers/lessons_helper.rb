@@ -30,7 +30,7 @@ module LessonsHelper
     obj.content
   end
 
-  def get_index index
-    Settings.lessons_controller.per_page * (params[:page] - 1) + index + 1
+  def get_index index, page
+    Settings.lessons_controller.per_page * (page - 1) + index + 1
   end  
 end
