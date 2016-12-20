@@ -58,7 +58,7 @@
             <h4 class = "modal-title"><%= t "modal_title_add_question" %></h4>
           </div>
           <div class = "modal-body">
-            <%= form_for [:admin, @category.questions.build], remote: true do |f| %>
+            <%= form_for [:admin, @category.questions.build] do |f| %>
               <div class = "form-group">
                 <%= f.hidden_field :category_id, value: @category.id %>
                 <%= f.label :content %><br>

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= question.id %></td>
+  <td><%= link_to question.content, [:admin, question] %></td>
+  <td>
+    <%= link_to t("edit"), [:admin, question], class: "btn btn-info" %>
+    <%= link_to t("delete"), [:admin, question], method: :delete,
+      data: {confirm: t("are_you_sure")}, class: "btn btn-danger" %>
+  </td>
+</tr>
