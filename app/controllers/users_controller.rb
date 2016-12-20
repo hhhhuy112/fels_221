@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     unless @user
       flash[:danger] = t "do_not_find_user"
-      redirect_to :back
+      redirect_to request.referer
     end
   end
 

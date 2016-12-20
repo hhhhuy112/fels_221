@@ -12,9 +12,7 @@
           </tr>
           <% @lessons.each_with_index do |lesson, index| %>
             <tr>
-              <% binding.pry %>
               <% if params[:page] %>
-                <% binding.pry %>
                 <td><%= get_index index, params[:page] %></td>
                 <td><%= t "lesson" %> <%= get_index index, params[:page] %></td>
               <% else %>

@@ -2,10 +2,10 @@ class Search < ApplicationRecord
   
   def search_words user
     words = Question.all
-    words = words.search_content if keyword.present?
+    words = words.search_content keyword if keyword.present?
     if category.present?
       learned_ids = Learn.learned_ids user.id, category
-      words = words.of_category
+      words = words.of_category category
     else
       learned_ids = Learn.learned_ids_without_category user.id
     end

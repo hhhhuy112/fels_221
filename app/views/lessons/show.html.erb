@@ -21,13 +21,17 @@
               <td><%= get_question learn.question_id %></td>
               <td><%= your_answer learn.answer_id %></td>
               <td><%= correct_answer learn.question_id %></td>
-              <td><span class="success glyphicon glyphicon-ok"></span></td>
+              <% if is_learned? learn.question_id %>
+                <td><span class="cl-green glyphicon glyphicon-ok"></span></td>
+              <% else %>
+                <td><span class="cl-red glyphicon glyphicon-remove"></span></td>
+              <% end %>
             </tr>
           <% end %>
         </table>
         <div class="text-center">
           <%= link_to t("categories"), categories_path, class: "btn btn-primary" %>
-          <%= link_to t("new_lesson"), new_category_lesson_path(@lesson.category_id),
+          <%= link_to t("history"), category_lessons_path(@lesson.category_id),
             class: "btn btn-warning" %>
         </div>
       </div>

@@ -32,5 +32,9 @@ module LessonsHelper
 
   def get_index index, page
     Settings.lessons_controller.per_page * (page - 1) + index + 1
+  end
+
+  def get_lesson id
+    Lesson.find_by id: id
   end  
 end

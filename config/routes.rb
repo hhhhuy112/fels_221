@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :categories, only: :index do
     resources :lessons, only: [:index, :show, :new, :create]
   end
-  resources :seaches, only: :index
+  resources :searches, only: :index
   resources :search_suggestions
+  resources :relationships
 end

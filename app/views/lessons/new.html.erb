@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col-md-2">
-    <div class="processBox">
-      <h1 class="timer-container" id="#run-the-timer">
+    <div class=" processBox box-body">
+      <h3><%= t "your_time" %></h3>
+      <h3 class="timer-container" id="#run-the-timer">
         <span class="minute"><%= Settings.lesson_view.minute %></span>:
         <span class="second"><%= Settings.lesson_view.second %></span>
-      </h1>
+      </h3>
     </div>
   </div>
 
@@ -26,11 +27,11 @@
           </div>
         </div>
       <% end %>
-      <%= l.submit %>
+      <%= l.submit class: "btn btn-danger space" %>
     <% end %>
   </div>
   <div class="col-md-2">
-    <div class="processBox">
+    <div class="processBox box-body">
       <h3> <%= t "progress" %> </h3>
       <h3>
         <span id="answer_count"><%= Settings.lesson_view.answer_count %></span>/<%= i %>

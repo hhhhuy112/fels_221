@@ -78,6 +78,10 @@ en:
   delete_success: "Delete item success"
   delete_fail: "Delete item fail"
   edit_question: "Edit question"
+  your_time: "Your Time"
+  sharp: "#"
+  follow: "Follow"
+  unfollow: "Unfollow"
   show_categories:
     history: "History"
     new_lesson: "New Lesson"
