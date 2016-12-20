@@ -5,7 +5,7 @@
         placeholder: t("search"), id: "search_keywords" %>
     </div>
     <div class="col-md-4">
-      <%= select_tag :category, options_for_select @categories.collect{|u| [u.name, u.id]},
+      <%= select_tag :category, options_for_select(@categories.collect{|u| [u.name, u.id]}),
         include_blank: t("all_categories"), class: "form-control" %>
     </div>
     <div class="col-md-4">

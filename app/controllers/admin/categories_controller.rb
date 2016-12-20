@@ -26,6 +26,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @category = Category.new category_params
+    @category.picture = Faker::Avatar.image
     if @category.save
       flash[:success] = t "add_success"
       redirect_to admin_categories_url
@@ -52,7 +53,9 @@ class Admin::CategoriesController < Admin::BaseController
     else
       flash[:danger] = t "delete_fail"
     end
-    redirect_to admin_categories_url
+    respond_to do |format|
+      format.html {redirect_to admin_categories_url, status: 303}
+    end
   end
 
   private

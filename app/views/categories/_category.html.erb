@@ -2,7 +2,7 @@
   <div class="product-item">
     <div class="pi-img-wrapper">
       <%= image_tag category.picture, class: "img-responsive" %>
-      <div><%= link_to t("history"), "#", class: "btn" %></div>
+      <div><%= link_to t("history"), category_lessons_path(category), class: "btn" %></div>
     </div>
     <h3><%= category.name %></h3>
     <div class="pi-price">

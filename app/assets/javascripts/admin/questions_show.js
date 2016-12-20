@@ -27,6 +27,7 @@ $(document).on('ready page:load', function(event) {
       if($(this).attr('class') == 'select_answer_input'){
         $(this).removeAttr('checked');
       }
+
       oldId = $(this).attr ('id');
       newId = oldId.replace(new RegExp(/[0-99]/), formsOnPage);
       $(this).attr ('id', newId);

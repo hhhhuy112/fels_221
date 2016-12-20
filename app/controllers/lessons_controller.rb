@@ -4,7 +4,6 @@ class LessonsController < ApplicationController
   
   def index
     @lessons = current_user.lessons.of_category(params[:category_id])
-      .paginate(page: params[:page]).per_page Settings.lessons_controller.per_page
   end
 
   def show

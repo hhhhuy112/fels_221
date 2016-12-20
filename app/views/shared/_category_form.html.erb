@@ -1,7 +1,7 @@
 <%= form_for [:admin, @category] do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class = "field">
-    <%= f.text_field :name, placeholder: t("placeholder_category"),
+    <%= f.text_field :name, required: true, placeholder: t("placeholder_category"),
       class: "form-control" %>
   </div>
   <%= f.submit t("submit"), class: "btn btn-primary" %>

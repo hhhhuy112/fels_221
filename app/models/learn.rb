@@ -4,7 +4,7 @@ class Learn < ApplicationRecord
   belongs_to :lesson, optional: true
 
   scope :learned_ids, -> user_id, category do
-    lessons = category.lessons.of_user user_id
+    lessons = Lesson.of_user(user_id).of_category(category)
     self.add_question_id lessons
   end
 

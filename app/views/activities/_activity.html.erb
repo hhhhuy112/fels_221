@@ -17,10 +17,10 @@
         <%= link_to search_user_by_id(activity.source).name,
           user_path(activity.source) %>
       <% elsif activity.had_learn? %>
-        <%= activity.user_name %>
+        <%= link_to activity.user_name, user_path(activity.user_id) %>
         <%= t "had learn" %>
-        <%= Lesson.find(activity.source).score %><%= t "word_in_categories" %>
-        <%= link_to Lesson.find(activity.source).category.name, category_path(activity.source) %>
+        <%= get_lesson(activity.source).score %> <%= t "word_in_categories" %>
+        <%= get_lesson(activity.source).category.name %>
       <% end %>
     </h3>
   </div>

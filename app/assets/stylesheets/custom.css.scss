@@ -297,18 +297,29 @@ span.picture {
   overflow: hidden;
 }
 
-.radio input[type="radio"]{
+input[type="radio"]{
   width: inherit;
 }
 
 /* Lesson New */
 .processBox {
-  background-color: green;
   position: fixed;
   text-align: center;
   float: right;
-  color: white;
-  h2 {
-    color: white;
-  }
+  background: #ffffff;
+  border-top: 3px solid #d2d6de;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.space {
+  margin-bottom: 20px;
+}
+
+.user_info_name {
+  text-align: center;
+}
+
+.user_info_profile {
+  text-align: center;
 }
