@@ -296,3 +296,44 @@ span.picture {
   padding: 0px;
   overflow: hidden;
 }
+
+input[type="radio"]{
+  width: inherit !important
+}
+
+.processBox {
+  position: fixed;
+  text-align: center;
+  float: right;
+  background: #ffffff;
+  border-top: 3px solid #d2d6de;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.space {
+  margin-bottom: 20px;
+}
+
+.user_info_name {
+  text-align: center;
+}
+
+.user_info_profile {
+  text-align: center;
+}
+
+#show_follow .timeline > li > .glyphicon {
+  width: 50px;
+  height: 50px;
+  left: 8px;
+  top: -4px;
+}
+
+.panel {
+  margin-top: 5px;
+}
+
+.show_category .profile {
+  margin-top: 5px;
+}
